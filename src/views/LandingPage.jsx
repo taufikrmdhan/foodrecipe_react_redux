@@ -30,11 +30,6 @@ const LandingPage = () => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const data = localStorage.getItem("data");
-    if(!token || !data) {
-      return navigate("/login");
-    }
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list`)
       .then((res) => {
