@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import landing from "../assets/landingpage.module.css";
 import { ReactComponent as User } from "../assets/image/Userpanel.svg";
 import Footers from "../Component/footer";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { getRecipe } from "../redux/action/landing";
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const recipe = useSelector((state) => {
+    return state.recipe
+  });
+
+  useEffect(() => {
+    dispatch(getRecipe());
+  }, []);
+
   const [title, setTitle] = useState("");
-  const [recipe, setRecipe] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [iserror, setIserror] = useState(false);
+  // const [recipe, setRecipe] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [iserror, setIserror] = useState(false);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -29,20 +40,21 @@ const LandingPage = () => {
     }
   };
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list`)
-      .then((res) => {
-        setTimeout(() => {
-          setRecipe(res.data);
-          setLoading(false);
-        }, 100);
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list`)
+  //     .then((res) => {
+  //       setTimeout(() => {
+  //         console.log(res);
+  //         setRecipe(res.data);
+  //         setLoading(false);
+  //       }, 100);
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   const logout = () => {
     localStorage.clear();
@@ -210,12 +222,13 @@ const LandingPage = () => {
             <h3 className={landing.h3}>Popular Recipe</h3>
           </div>
           <div className={`${landing.grid12} ${landing.gapMedium}`}>
-            {loading ? (
+            {
+               recipe.isLoading ? (
               <p>Loading...</p>
-            ) : iserror ? (
+            ) : recipe.isError ? (
               <p>failed to get</p>
             ) : (
-              recipe.map((data, i) => {
+              recipe.data.map((data, i) => {
                 // {
                 //     "id_recipe": 14,
                 //     "title": "Nikmat",
