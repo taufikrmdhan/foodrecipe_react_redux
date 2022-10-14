@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Airbnb Cereal App';
+    src:
+    url(../assets/airbnb-cereal-font/AirbnbCereal_W_Md.otf);
+}
+  
+  .customBody {
+    font-family: "Airbnb Cereal App" !important;
+    background: linear-gradient(
+      90deg,
+      #efc81a 5%,
+      rgba(255, 255, 255, 1) 5%,
+      rgba(255, 255, 255, 1) 95%
+    );
+    /* padding-bottom: 0px; */
+  }
+
+  .h3{
+    color: black !important;
+  }
+  
+  .h1 {
+    font-weight: 500 !important;
+    color: #2e266f;
+    line-height: 90px;
+    font-size: 72px !important;
+  }
+  
+  .customHeader {
+    padding-bottom: 100px;
+  }
+  
+  .customNav {
+    color: #2e266f !important;
+  }
+  
+  .customFooter {
+    background-color: #efc81a;
+    padding: 50px;
+    color: white;
+  }
+  
+  .customInnerFooter {
+    margin-top: 100px !important;
+    display: flex;
+    flex-direction: row;
+  }
+  .h4 {
+    color: #2e266f;
+    line-height: 48px;
+    font-size: 60px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .customListFooter {
+    padding: 20px;
+  }
+  .customListFooter a {
+    text-decoration: none;
+    color: gray !important;
+  }
+  
+  .customArcademy {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: black;
+  }
+  .footerLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .grid12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  
+  .cusGridLg8 {
+    grid-column: span 8 / span 8;
+  }
+  
+  .cusGridLg4 {
+    grid-column: span 4 / span 4;
+  }
+  
+  .gapMedium {
+    gap: 8px;
+  }
+  
+  .flexCol {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .aspectLock {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .embedVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+  }
+  
+  @media (max-width: 768px) {
+    .cusGridLg8 {
+      grid-column: span 12 / span 12;
+    }
+  
+    .cusGridLg4 {
+      grid-column: span 12 / span 12;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .footerLinks {
+      margin-left: 0;
+      font-size: 14px;
+    }
+    .customInnerFooter {
+      flex-direction: column;
+    }
+    .customArcademy {
+      justify-content: center;
+    }
+  }
+  

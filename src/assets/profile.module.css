@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'Airbnb Cereal App';
+    src:
+    url(../assets/airbnb-cereal-font/AirbnbCereal_W_Md.otf);
+}
+    
+  .customBody {
+    font-family: "Airbnb Cereal App" !important;
+  }
+  
+  .customHeader {
+    padding-bottom: 100px;
+  }
+  
+  .customNav {
+    color: #2e266f !important;
+  }
+  
+  .activeCustom {
+    font-weight: bold !important;
+    border-bottom: #2e266f 5px solid;
+  }
+  
+  .btnCustomUpdate{
+    background-color: #F6F5F4 !important;
+    border-radius: 10px !important;
+    width: 20% !important;
+  }
+  
+  .aBtn{
+    text-decoration: none;
+    color: black;
+  }
+  
+  .customMain{
+      padding-bottom: 60px;
+  }
+  
+  .customSpaceUpdate{
+      margin-top: -90px !important;
+      margin-left: -40px;
+      /* margin-bottom: 50px; */
+  }
+  
+  /* @media (max-width: 640px) {
+      .custom-font-collapse{
+          font-size: 5px !important;
+          margin-left: 2000px !important;
+          margin-right: 2000px !important;
+      }
+  } */
+  
+  .customNameProfile{
+      margin-left: -40px !important;
+  }
+  
+  /* @media (max-width: 640px) {
+      .custom-name-profile{
+          margin-left: 0px !important;
+      }
+  } */
+  
+  .customAwesome {
+    font-size: 20px !important;
+    color: #efc81a !important;
+    margin-top: 150px !important;
+    margin-left: -50px !important;
+  }
+  
+  .customSpace {
+    margin-top: 100px !important;
+    margin-bottom: 50px;
+  }
+  
+  .grid12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  
+  .gapMedium {
+    gap: 24px;
+  }
+  
+  .cusGridMd3 {
+    grid-column: span 3 / span 3;
+  }
+  
+  .titleImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    color: white;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+  .customListFooter {
+    padding: 20px;
+  }
+  .customListFooter a {
+    text-decoration: none;
+    color: gray !important;
+  }
+  .customFooter {
+    background-color: #efc81a;
+    padding: 10px;
+    color: white;
+  }
+  
+  .customInnerFooter {
+    margin-top: 100px !important;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .footerLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  @media (max-width: 640px) {
+    .footerLinks {
+      margin-left: 0;
+      font-size: 14px;
+    }
+    .customInnerFooter {
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 768px) {
+    .cusGridMd3 {
+      grid-column: span 6 / span 6;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .cusGridMd3 {
+      grid-column: span 12 / span 12;
+    }
+    .btnCustomUpdate{
+      width:  100px !important;
+    }
+    /* .custom-name-profile{
+      display: none;
+    } */
+  }
+  

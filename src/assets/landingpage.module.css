@@ -1,0 +1,253 @@
+@font-face {
+    font-family: 'Airbnb Cereal App';
+    src:
+    url(../assets/airbnb-cereal-font/AirbnbCereal_W_Md.otf);
+}
+  
+  .body {
+    font-family: "Airbnb Cereal App" !important;
+  }
+  
+  .h1 {
+    color: #2e266f;
+    line-height: 90px;
+    font-size: 60px !important;
+  }
+  .activeCustom {
+    font-weight: bold !important;
+    border-bottom: #2e266f 5px solid !important;
+  }
+  
+  button .aBtn {
+    text-decoration: none !important;
+    color: white !important;
+  }
+  
+  .imgHeader {
+    max-width: 600px;
+  }
+  
+  .imgWrapper {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .customHeader {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 80%,
+      rgba(241, 188, 21, 1) 80%
+    );
+    padding-bottom: 100px;
+  }
+  .customSectionHead {
+    padding-top: 120px;
+  }
+  .inputSearchCustom {
+    padding-top: 10px;
+    padding-left: 70px;
+    padding-right: 35px;
+    padding-bottom: 10px;
+    width: 100%;
+    border-radius: 4px;
+    height: 70px;
+    border: 1px solid #efefef;
+    background-color: #efefef;
+    margin-bottom: 30px;
+  }
+  
+  .customIconSearch {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    position: absolute;
+    left: 35px;
+    bottom: 15px;
+  }
+  .customNav {
+    padding: 20px;
+  }
+  li .aList {
+    color: #2e266f !important;
+  }
+  .btnCustom {
+    background-color: #efc81a !important;
+    color: white !important;
+  }
+  
+  .imgMainPopular {
+    max-width: 600px;
+    position: relative;
+  }
+  .imgMainPopular::after {
+    content: "";
+    position: absolute;
+    transform: translate(18%, 18%);
+    top: 0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+    background: transparent;
+    border: 2px solid #f1bc15;
+    border-radius: 10px;
+    z-index: -1;
+  }
+  
+  .customRectangle {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    height: 140px;
+  }
+  .customRectangle::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 90%;
+    background: transparent;
+    border: 10px solid #f1bc15;
+    border-radius: 5px;
+    z-index: -1;
+  }
+  
+  .imgMainNewRecipe {
+    max-width: 600px;
+    position: relative;
+  }
+  .imgMainNewRecipe::after {
+    content: "";
+    position: absolute;
+    transform: translate(-30px, -35px);
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 90%;
+    background: #f1bc15;
+    border: 2px solid #f1bc15;
+    border-radius: 10px;
+    z-index: -1;
+  }
+  
+  .titleImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: flex-end;
+    color: black;
+    font-size: 30px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .grid12 {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  .gapMedium {
+    gap: 24px;
+  }
+  
+  .cusGridMd4 {
+    grid-column: span 4;
+  }
+  
+  .customFooter {
+    background-color: #efc81a;
+    padding: 50px;
+    color: white;
+  }
+  
+  .customInnerFooter {
+    margin-top: 100px !important;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .h4 {
+    color: #2e266f;
+    line-height: 48px;
+    font-size: 60px !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .customListFooter {
+    padding: 20px;
+  }
+  .customListFooter a {
+    text-decoration: none;
+    color: gray !important;
+  }
+  
+  .customArcademy {
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: black;
+  }
+  
+  .footerLinks {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .h3{
+    color: black !important;
+  }
+  
+  @media (max-width: 768px) {
+    .imgWrapper {
+      justify-content: center;
+      max-width: 100%;
+    }
+  }
+  @media (max-width: 768px) {
+    .cusGridMd4 {
+      grid-column: span 6;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .cusGridMd4 {
+      grid-column: span 12;
+    }
+  
+    .footerLinks {
+      margin-left: 0;
+      font-size: 14px;
+    }
+  
+    .customInnerFooter {
+      flex-direction: column;
+    }
+    .customArcademy {
+      justify-content: center;
+    }
+    .imgMainPopular::after {
+      content: "";
+      position: absolute;
+      transform: translate(-18%, 18%);
+      top: 0;
+      left: 0;
+      width: 90%;
+      height: 90%;
+      background: transparent;
+      border: 2px solid #f1bc15;
+      border-radius: 10px;
+      z-index: -1;
+    }
+  }
+  

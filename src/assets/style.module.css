@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Airbnb Cereal App';
+    src:
+    url(../assets/airbnb-cereal-font/AirbnbCereal_W_Md.otf);
+}
+
+.body{
+    font-family: 'Airbnb Cereal App' !important;
+}
+.bgImage {
+    background-image: linear-gradient(rgba(241, 188, 15, 0.82), rgba(241, 188, 15, 0.82)),url(../assets/image/imgBackground.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnCustom{
+    background-color: #EFC81A !important;
+    color: white !important;
+}
+
+.accent{
+    accent-color: #EFC81A !important;
+    cursor: pointer;
+    margin-left: -20px;
+}
+
+.btnCustom:hover{
+    background-color: #EFC81A !important;
+    color: white !important;
+}
+
+form div button .a {
+    text-decoration: none;
+    color: white !important;
+}
+form div p .ap{
+    text-decoration: none;
+    color: #EFC81A !important;
+}
+form div .adiv{
+    text-decoration: none;
+    color: #9b9898 !important;
+}
+h3{
+    color: #EFC81A !important;
+}

@@ -1,0 +1,111 @@
+@font-face {
+    font-family: 'Airbnb Cereal App';
+    src:
+    url(../assets/airbnb-cereal-font/AirbnbCereal_W_Md.otf);
+}
+
+.customBody{
+    font-family: 'Airbnb Cereal App' !important;
+}
+
+.h1{
+    font-weight: 500 !important;
+    color: #2E266F ;
+    line-height: 90px;
+    font-size: 72px !important;
+}
+
+.customHeader{
+    padding-bottom: 100px;
+}
+
+.customNav{
+    color: #2E266F !important;
+}
+
+.customFooter{
+    background-color: #EFC81A;
+    padding: 50px;
+    color: white;
+}
+
+.customInnerFooter{
+    margin-top: 100px !important;
+    display: flex;
+    flex-direction: row;
+}
+
+.h4{
+    color: #2E266F ;
+    line-height: 48px;
+    font-size: 60px !important;
+    margin-bottom: 30px !important;
+}
+
+.btnCustomArea{
+    background-color:#EFC81A !important;
+    color: white !important;
+    border-radius: 4px !important;
+    width: 20% !important;
+}
+
+.textArea{
+    background-color: #F6F5F4 !important;
+}
+.input{
+    background-color: #F6F5F4 !important;
+}
+.activeCustom {
+    font-weight: bold !important;
+    border-bottom: #2E266F 5px solid !important;
+  }
+.rectangle{
+    width: 100%;
+    height: 300px;
+    border: 1px solid #d3d2d2;
+    border-radius: 4px;
+    background-color: #F6F5F4;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.customListFooter{   
+    padding: 20px;
+}
+.customListFooter a{
+    text-decoration: none;
+    color: gray !important;
+}
+
+.customArcademy{
+    position: relative;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: black;
+}
+.footerLinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+@media (max-width: 640px) {
+    .footerLinks{
+        margin-left: 0;
+        font-size: 14px;
+    }
+    .customInnerFooter{
+        flex-direction: column;
+    }
+    .customArcademy{
+        justify-content: center;
+    }
+}
