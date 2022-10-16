@@ -12,22 +12,22 @@ export const resetImage = () => {
   };
 }
 
-// export const createRecipe = (form) => {
-//   return new Promise((resolve, reject) => {
-//     axios
-//       .post(`${process.env.REACT_APP_BACKEND_URL}/recipe/add`, form, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data'
-//         }
-//       })
-//       .then((res) => {
-//         resolve(res.data);
-//       })
-//       .catch((err) => {
-//         reject(err);
-//       });
-//   });
-// };
+export const createRecipe = (form) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/recipe/add`, form, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((res) => {
+        resolve(res.data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
 // export const createRecipe = (form) => {
 //   return {
 //     type: "CREATE_RECIPE",
