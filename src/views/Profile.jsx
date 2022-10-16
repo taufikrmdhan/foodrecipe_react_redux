@@ -1,53 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import profilestyle from "../assets/profile.module.css";
 import Footers from "../Component/footer";
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { getRecipe } from "../redux/action/recipe";
+import { deleteRecipe } from "../redux/action/addrecipe";
 
 const Profile = () => {
-  // const [recipe, setRecipe] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [iserror, setIserror] = useState(false);
-
   const data = JSON.parse(localStorage.getItem("data"));
 
   const dispatch = useDispatch();
   const recipe = useSelector((state) => {
     return state.recipe;
   });
-
+  const state = useSelector((state) => {
+    return state.addRecipe;
+  });
+ 
   useEffect(() => {
     dispatch(getRecipe());
   }, []);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list`)
-  //     .then((res) => {
-  //       setTimeout(() => {
-  //         setRecipe(res.data);
-  //         setLoading(false);
-  //       }, 100);
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
   const deleteRow = (id_recipe) => {
-    axios
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/recipe/delete/${id_recipe}`)
-      .then((res) => {
-        console.log(res);
-        console.log(res.data);
-
-        const posts = recipe.data.filter((item) => item.id_recipe !== id_recipe);
-        // setRecipe({ data: posts });
-        dispatch(getRecipe({ data: posts }));
-      });
+    dispatch(deleteRecipe(id_recipe)
+    .then((res) => {
+      alert("Recipe deleted");
+      dispatch(getRecipe());
+    })
+    .catch((err) => {
+      alert("Failed to delete recipe");
+    })
+    );
   };
 
   return (
