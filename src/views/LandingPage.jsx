@@ -5,7 +5,7 @@ import { ReactComponent as User } from "../assets/image/Userpanel.svg";
 import Footers from "../Component/footer";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
-import { getRecipe } from "../redux/action/landing";
+import { getRecipe } from "../redux/action/recipe";
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -25,12 +25,12 @@ const LandingPage = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(title);
+    // console.log(title);
     if (title != "") {
       axios
         .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list/${title}`)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           if(res.data.length > 0){
             navigate(`/detail?title=${title}`);
           } else {

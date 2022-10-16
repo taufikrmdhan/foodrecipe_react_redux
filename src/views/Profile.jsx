@@ -2,30 +2,40 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import profilestyle from "../assets/profile.module.css";
 import Footers from "../Component/footer";
-import Navbar from "../Component/navbar";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { getRecipe } from "../redux/action/recipe";
 
 const Profile = () => {
-  const [recipe, setRecipe] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [iserror, setIserror] = useState(false);
+  // const [recipe, setRecipe] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [iserror, setIserror] = useState(false);
 
   const data = JSON.parse(localStorage.getItem("data"));
 
+  const dispatch = useDispatch();
+  const recipe = useSelector((state) => {
+    return state.recipe;
+  });
+
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list`)
-      .then((res) => {
-        setTimeout(() => {
-          setRecipe(res.data);
-          setLoading(false);
-        }, 100);
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    dispatch(getRecipe());
   }, []);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list`)
+  //     .then((res) => {
+  //       setTimeout(() => {
+  //         setRecipe(res.data);
+  //         setLoading(false);
+  //       }, 100);
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   const deleteRow = (id_recipe) => {
     axios
@@ -34,8 +44,9 @@ const Profile = () => {
         console.log(res);
         console.log(res.data);
 
-        const posts = recipe.filter((item) => item.id_recipe !== id_recipe);
-        setRecipe({ data: posts });
+        const posts = recipe.data.filter((item) => item.id_recipe !== id_recipe);
+        // setRecipe({ data: posts });
+        dispatch(getRecipe({ data: posts }));
       });
   };
 
@@ -161,12 +172,13 @@ const Profile = () => {
                 <div
                   className={`${profilestyle.grid12} ${profilestyle.gapMedium}`}
                 >
-                  {loading ? (
+                  {/* {
+                  recipe.isLoading ? (
                     <p>Loading...</p>
-                  ) : iserror ? (
+                  ) : recipe.isError ? (
                     <p>failed to get</p>
                   ) : recipe.length > 0 ? (
-                    recipe?.map((data, i) => {
+                    recipe.data?.map((data, i) => {
                       return (
                         <>
                           <div
@@ -229,6 +241,74 @@ const Profile = () => {
                     })
                   ) : (
                     <h4>Success delete data</h4>
+                  )} */}
+                   {
+                  recipe.isLoading ? (
+                    <p>Loading...</p>
+                  ) : recipe.isError ? (
+                    <p>failed to get</p>
+                  ) : (
+                    recipe.data?.map((data, i) => {
+                      return (
+                        <>
+                          <div
+                            key={data.id_recipe}
+                            className={`${profilestyle.cusGridMd3} position-relative p-0`}
+                          >
+                            <img
+                              src={`${process.env.REACT_APP_BACKEND_URL}/${data.image}`}
+                              className="img-fluid"
+                              alt={data.title}
+                            />
+                            <span
+                              className={`position-absolute ${profilestyle.titleImage}`}
+                            >
+                              {data.title}
+                            </span>
+                          </div>
+                          <div className="d-flex flex-column">
+                            <div>
+                              <button
+                                onClick={(e) => deleteRow(data.id_recipe, e)}
+                                type="button"
+                                className="btn btn-danger my-1"
+                              >
+                                <i
+                                  className="fa fa-trash"
+                                  aria-hidden="true"
+                                ></i>
+                              </button>
+                            </div>
+                            <div>
+                              <button
+                                type="button"
+                                className="btn btn-warning my-1"
+                              >
+                                <Link
+                                  className={profilestyle.aBtn}
+                                  to="/update"
+                                  state={{ id: data.id_recipe, image: data.image, title: data.title, ingredient: data.ingredient, videostep: data.videostep}}
+                                >
+                                  <i
+                                    className="fa fa-pencil-square-o"
+                                    aria-hidden="true"
+                                  ></i>
+                                </Link>
+                              </button>
+                            </div>
+                            <div>
+                            <button
+                                
+                                type="button"
+                                className="btn btn-success my-1"
+                              >
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                              </button>
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })
                   )}
                 </div>
               </div>
