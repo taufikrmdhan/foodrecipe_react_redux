@@ -26,13 +26,10 @@ const AddRecipe = () => {
     dispatch(uploadImage(fileUploaded));
   };
   const handleSubmit = (event) => {
-    // console.log(image);
     event.preventDefault();
     let formData = new FormData(event.target);
     formData.append("image", state.fileImage);
     dispatch(resetImage());
-    // console.log(Object.fromEntries(formData));
-    // handlePost(Object.fromEntries(formData));
     dispatch(
       createRecipe(formData)
       .then((res) => {
@@ -42,31 +39,7 @@ const AddRecipe = () => {
         alert("Failed to add recipe");
       })
     )
-    dispatch(resetImage());
   };
-  // let formPost = useRef();
-  // const handlePost = (form) => {
-  //   console.log(form);
-  //   axios
-  //     .post(`${process.env.REACT_APP_BACKEND_URL}/recipe/add`, form, {
-  //       headers: {
-  //         "Content-Type": "multipart/form-data",
-  //       },
-  //     })
-  //     .then((res) => {
-  //       // console.log(res);
-
-  //       alert("Recipe added successfully");
-  //       navigate("/profile");
-  //       //   form.reset();
-  //     })
-  //     .catch((err) => {
-  //       // console.log(err);
-
-  //       alert("Failed to add recipe");
-  //     });
-
-  // };
 
   return (
     <div className={recipestyle.customBody}>

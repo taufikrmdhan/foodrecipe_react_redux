@@ -7,6 +7,7 @@ import promiseMiddleware from "redux-promise-middleware";
 
 import {persistStore, persistReducer} from "redux-persist"
 import storage from "redux-persist/lib/storage"
+import thunk from "redux-thunk";
 
 const persistConfig = {
     key: "root",
@@ -15,7 +16,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-const middlewares = applyMiddleware(logger, promiseMiddleware);
+const middlewares = applyMiddleware(logger, thunk, promiseMiddleware);
 const store = createStore(persistedReducer, middlewares);
 const persistor = persistStore(store);
 

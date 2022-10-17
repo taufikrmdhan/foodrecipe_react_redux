@@ -5,7 +5,7 @@ export const getRecipe = () => {
     type: "GET_LIST_RECIPE",
     payload: axios({
       method: "POST",
-      url: `${process.env.REACT_APP_BACKEND_URL}/recipe/list/asc`,
+      url: `${process.env.REACT_APP_BACKEND_URL}/recipe/list/desc`,
     }),
   };
 };

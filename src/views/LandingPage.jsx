@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import landing from "../assets/landingpage.module.css";
-import { ReactComponent as User } from "../assets/image/Userpanel.svg";
 import Footers from "../Component/footer";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,18 +18,13 @@ const LandingPage = () => {
   }, []);
 
   const [title, setTitle] = useState("");
-  // const [recipe, setRecipe] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [iserror, setIserror] = useState(false);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    // console.log(title);
     if (title != "") {
       axios
         .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list/${title}`)
         .then((res) => {
-          // console.log(res.data);
           if(res.data.length > 0){
             navigate(`/detail?title=${title}`);
           } else {
@@ -39,22 +33,6 @@ const LandingPage = () => {
         });
     }
   };
-
-  // useEffect(() => {
-  //   axios
-  //     .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list`)
-  //     .then((res) => {
-  //       setTimeout(() => {
-  //         console.log(res);
-  //         setRecipe(res.data);
-  //         setLoading(false);
-  //       }, 100);
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   const logout = () => {
     localStorage.clear();

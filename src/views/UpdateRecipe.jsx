@@ -2,15 +2,18 @@ import React, { useState, useRef, useEffect } from "react";
 import recipestyle from "../assets/addrecipe.module.css";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Footers from "../Component/footer";
-import axios from "axios";
-import { Buffer } from "buffer";
+import { useSelector, useDispatch } from "react-redux";
+import { uploadImage, resetImage, updateRecipe } from "../redux/action/addrecipe";
 
 const UpdateRecipe = () => {
   let { state } = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const stateRedux = useSelector((state) => {
+    return state.addRecipe;
+  });
   const hiddenFileInput = useRef(null);
-  // const navigate = useNavigate();
-  const [image, setImage] = useState({ blob: "", url: "" });
+  
   const [idRecipe, setIdRecipe] = useState("");
   const [form, setForm] = useState({
     title: "",
@@ -18,31 +21,31 @@ const UpdateRecipe = () => {
     videostep: "",
   });
 
-  //update recipe
-  const handleUpdate = (form) => {
-    axios
-      .put(
-        `${process.env.REACT_APP_BACKEND_URL}/recipe/update/${idRecipe}`,
-        form,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        setImage("");
-        // return navigate("/detail");
-        alert("Recipe updated successfully");
-        //   formPost.reset();
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("Failed to update recipe");
-      });
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
   };
-  //handle ketika id recipe tidak ada
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    console.log(fileUploaded);
+    dispatch(uploadImage(fileUploaded));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let formData = new FormData(event.target);
+    formData.append("image", stateRedux.fileImage);
+    dispatch(resetImage());
+    dispatch(
+      updateRecipe(formData, state.id)
+      .then((res) => {
+        // console.log(res);
+        alert("Recipe updated");
+        navigate("/profile");
+      }).catch((err) => {
+        alert("Failed to update recipe");
+      })
+    )
+  };
   useEffect(() => {
     if (state) {
       setIdRecipe(state.id);
@@ -51,35 +54,10 @@ const UpdateRecipe = () => {
         ingredient: state.ingredient,
         videostep: state.videostep,
       });
-      setImage({ ...image, url: state.image });
-      handleBlobImage(state.image);
     } else {
       return navigate("/profile", { replace: true });
     }
   }, []);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    let formData = new FormData(event.target);
-    formData.append("image", image);
-    // console.log(Object.fromEntries(formData));
-    handleUpdate(Object.fromEntries(formData));
-  };
-
-  const handleClick = (event) => {
-    hiddenFileInput.current.click();
-  };
-  const handleChange = (event) => {
-    const fileUploaded = event.target.files[0];
-    document.getElementById("customBtn").innerHTML = fileUploaded.name;
-    setImage(fileUploaded);
-  };
-  const handleBlobImage = async (url) => {
-    const res = await fetch(url);
-    const blob = await res.blob();
-    const file = new File([blob], "image.jpg", { type: "image/jpeg" });
-    setImage({ blob: file, url: url });
-  };
 
   return (
     <div className={recipestyle.customBody}>
@@ -149,7 +127,7 @@ const UpdateRecipe = () => {
                     id="customBtn"
                     onClick={handleClick}
                   >
-                    Add image
+                    {stateRedux.pathImage}
                   </h5>
                 </div>
                 <input

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import style from "../assets/style.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
-
+import { useDispatch } from "react-redux";
+import { loginUser } from "../redux/action/user";
 
 const Login = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -13,27 +14,25 @@ const Login = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(form);
-    if (form.username === "" || form.password === "") {
+    if (form.email === "" || form.password === "") {
       alert("Data tidak boleh kosong");
     } else {
       const body = {
         email: form.email,
         password: form.password,
       };
-      axios
-        .post(`${process.env.REACT_APP_BACKEND_URL}/user/login`, body)
-        .then((res) => {
-          console.log(res.data);
-          localStorage.setItem("token", res.data.token.token);
-          localStorage.setItem("data", JSON.stringify(res.data.token.data));
-          return navigate("/landing");
-          console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-          alert("Email atau password salah");
-        });
+      dispatch(
+        loginUser(body)
+          .then((res) => {
+            console.log(res.data);
+            localStorage.setItem("token", res.data.token.token);
+            localStorage.setItem("data", JSON.stringify(res.data.token.data));
+            navigate("/landing");
+          })
+          .catch((err) => {
+            alert("Email or password is wrong");
+          })
+      );
     }
   };
   return (
@@ -70,7 +69,9 @@ const Login = () => {
                   className="form-control"
                   id="inputPassword"
                   placeholder="Password"
-                  onChange={(e) => setForm({ ...form, password: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, password: e.target.value })
+                  }
                 />
               </div>
               <div>
@@ -87,7 +88,7 @@ const Login = () => {
               </div>
               <div className="d-grid gap-2">
                 <button type="submit" className={`btn ${style.btnCustom}`}>
-                    Login                
+                  Login
                 </button>
               </div>
               <div className="text-end">

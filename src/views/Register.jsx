@@ -1,11 +1,15 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import style from "../assets/style.module.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { createUser } from "../redux/action/user";
 
 const Register = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+
   const [form, setForm] = useState({
     nama: "",
     email: "",
@@ -16,7 +20,12 @@ const Register = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(form);
-    if (form.nama === "" || form.email === "" || form.phone === "" || form.password === "") {
+    if (
+      form.nama === "" ||
+      form.email === "" ||
+      form.phone === "" ||
+      form.password === ""
+    ) {
       alert("Please fill all the field");
     } else {
       const body = {
@@ -24,17 +33,17 @@ const Register = () => {
         email: form.email,
         phone: form.phone,
         password: form.password,
-      }
-      axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/user/register`, body)
-      .then((res) => {
-        console.log(res.data);
-        return navigate("/login");
-        alert("Register success");   
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      };
+      dispatch(
+        createUser(body)
+          .then((res) => {
+            alert("Register success");
+            navigate("/login");
+          })
+          .catch((err) => {
+            alert("Register failed");
+          })
+      );
     }
   };
 
@@ -59,7 +68,7 @@ const Register = () => {
                   className="form-control"
                   id="inputUsername"
                   placeholder="Enter name"
-                   onChange={(e) => setForm({...form, nama: e.target.value})}
+                  onChange={(e) => setForm({ ...form, nama: e.target.value })}
                 />
               </div>
               <div className="form-group">
@@ -71,7 +80,7 @@ const Register = () => {
                   className="form-control"
                   id="inputEmail"
                   placeholder="Enter email address"
-                   onChange={(e) => setForm({...form, email: e.target.value})}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
                 />
               </div>
               <div className="form-group">
@@ -82,7 +91,7 @@ const Register = () => {
                   className="form-control"
                   id="inputPhone"
                   placeholder="08xxxxxxxxx"
-                   onChange={(e) => setForm({...form, phone: e.target.value})}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
                 />
               </div>
               <div className="form-group">
@@ -94,7 +103,9 @@ const Register = () => {
                   className="form-control"
                   id="inputPassword"
                   placeholder="Create New Password"
-                   onChange={(e) => setForm({...form, password: e.target.value})}
+                  onChange={(e) =>
+                    setForm({ ...form, password: e.target.value })
+                  }
                 />
               </div>
               <div className="form-group">
@@ -126,7 +137,9 @@ const Register = () => {
               <div className="text-center">
                 <p className="text-muted">
                   Already have an account?
-                  <Link className={style.ap} to="/login">Log in Here</Link>
+                  <Link className={style.ap} to="/login">
+                    Log in Here
+                  </Link>
                 </p>
               </div>
             </form>

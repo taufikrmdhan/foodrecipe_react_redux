@@ -6,9 +6,9 @@ import axios from "axios";
 
 const DetailRecipe = () => {
   const navigate = useNavigate();
-  const [recipe, setRecipe] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [iserror, setIserror] = useState(false);
+  // const [recipe, setRecipe] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [iserror, setIserror] = useState(false);
   const [queryParam] = useSearchParams();
 
   const titleSearch = queryParam.get("title");

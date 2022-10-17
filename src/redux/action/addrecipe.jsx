@@ -41,15 +41,21 @@ export const deleteRecipe = (id_recipe) => {
     });
   });
 }
-// export const createRecipe = (form) => {
-//   return {
-//     type: "CREATE_RECIPE",
-//     payload: axios({
-//       method: "POST",
-//       url: `${process.env.REACT_APP_BACKEND_URL}/recipe/add`,form,
-//       headers: {
-//         'Content-Type': 'multipart/form-data'
-//       },
-//     })
-//   }
-// }
+
+export const updateRecipe = (form, idRecipe) => {
+  return new Promise((resolve, reject) => {
+    axios
+    .put(`${process.env.REACT_APP_BACKEND_URL}/recipe/update/${idRecipe}`, form, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+    .then((res) => {
+      console.log(res);
+      resolve(res);
+    })
+    .catch((err) => {
+      reject(err);
+    });
+  });
+}
