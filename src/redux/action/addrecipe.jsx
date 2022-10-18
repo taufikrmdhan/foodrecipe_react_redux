@@ -32,7 +32,12 @@ export const createRecipe = (form) => {
 export const deleteRecipe = (id_recipe) => {
   return new Promise((resolve, reject) => {
     axios
-    .delete(`${process.env.REACT_APP_BACKEND_URL}/recipe/delete/${id_recipe}`)
+    .delete(`${process.env.REACT_APP_BACKEND_URL}/recipe/delete/${id_recipe}`,
+    {
+      headers: {
+        token: localStorage.getItem("token"),
+      },
+    })
     .then((res) => {
       resolve(res.data);
     })
