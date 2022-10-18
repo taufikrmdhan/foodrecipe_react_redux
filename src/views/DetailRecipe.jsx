@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import detailstyle from "../assets/detailrecipe.module.css";
 import Footers from "../Component/footer";
 import axios from "axios";
 
 const DetailRecipe = () => {
-  const navigate = useNavigate();
-  // const [recipe, setRecipe] = useState([]);
-  // const [loading, setLoading] = useState(true);
-  // const [iserror, setIserror] = useState(false);
   const [queryParam] = useSearchParams();
 
   const titleSearch = queryParam.get("title");
@@ -20,7 +16,7 @@ const DetailRecipe = () => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list/${titleSearch}`)
       .then((res) => {
-        console.log(res.data[0]);
+        // console.log(res.data[0]);
         setTitle(res.data[0].title);
         setIngredient(res.data[0].ingredient.split(","));
         setImage(`${process.env.REACT_APP_BACKEND_URL}/${res.data[0].image}`);

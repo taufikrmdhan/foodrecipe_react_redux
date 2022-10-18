@@ -10,14 +10,16 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const recipe = useSelector((state) => {
-    return state.recipe
+    return state.recipe;
   });
 
-  useEffect(() => {
-    dispatch(getRecipe());
-  }, []);
-
+  const [currentPage, setCurrentPage] = useState(1);
   const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    setCurrentPage(1);
+    dispatch(getRecipe(6, currentPage));
+  }, []);
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -25,13 +27,25 @@ const LandingPage = () => {
       axios
         .get(`${process.env.REACT_APP_BACKEND_URL}/recipe/list/${title}`)
         .then((res) => {
-          if(res.data.length > 0){
+          if (res.data.length > 0) {
             navigate(`/detail?title=${title}`);
           } else {
             alert("Recipe not found");
           }
         });
     }
+  };
+
+  const handlePreviousPagination = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+      dispatch(getRecipe(6, currentPage - 1));
+    }
+  };
+
+  const handleNextPagination = () => {
+    setCurrentPage(currentPage + 1);
+    dispatch(getRecipe(6, currentPage));
   };
 
   const logout = () => {
@@ -85,8 +99,16 @@ const LandingPage = () => {
               </ul>
             </div>
             <div>
-              <button type="button" className="btn d-flex flex-row" onClick={logout}>
-                <img src={require("../assets/image/iconUser.jpeg")} className="rounded-circle" alt="" />
+              <button
+                type="button"
+                className="btn d-flex flex-row"
+                onClick={logout}
+              >
+                <img
+                  src={require("../assets/image/iconUser.jpeg")}
+                  className="rounded-circle"
+                  alt=""
+                />
                 <p className="text-white mt-3">logout</p>
               </button>
             </div>
@@ -200,21 +222,12 @@ const LandingPage = () => {
             <h3 className={landing.h3}>Popular Recipe</h3>
           </div>
           <div className={`${landing.grid12} ${landing.gapMedium}`}>
-            {
-               recipe.isLoading ? (
+            {recipe.isLoading ? (
               <p>Loading...</p>
             ) : recipe.isError ? (
               <p>failed to get</p>
             ) : (
               recipe.data.map((data, i) => {
-                // {
-                //     "id_recipe": 14,
-                //     "title": "Nikmat",
-                //     "image": "1663827497930.jpg",
-                //     "ingredient": "masukkan bumbu, siapkan air panas , dan masak",
-                //     "videostep": "dsdsdsd",
-                //     "createdat": "2022-09-08T17:00:00.000Z"
-                // },
                 return (
                   <div
                     key={data.id_recipe}
@@ -232,61 +245,50 @@ const LandingPage = () => {
                 );
               })
             )}
-            {/* <div className={`${landing.cusGridMd4} position-relative p-0`}>
-              <img
-                src={require("../assets/image/makanan4.png")}
-                className="img-fluid"
-                alt="makan4"
-              />
-              <span className={`position-absolute ${landing.titleImage}`}>
-                Bomb Chicken
-              </span>
-            </div>
-            <div className={`${landing.cusGridMd4} position-relative p-0`}>
-              <img
-                src={require("../assets/image/makanan5.png")}
-                className="img-fluid"
-                alt="makan5"
-              />
-              <span className={`position-absolute ${landing.titleImage}`}>
-                Banana Smooth
-              </span>
-            </div>
-            <div className={`${landing.cusGridMd4} position-relative p-0`}>
-              <img
-                src={require("../assets/image/makanan6.png")}
-                className="img-fluid"
-                alt="makan6"
-              />
-              <span className={`position-absolute ${landing.titleImage}`}>
-                Coffe Lava Cake
-              </span>
-            </div>
-            <div className={`${landing.cusGridMd4} position-relative p-0`}>
-              <img
-                src={require("../assets/image/makanan7.png")}
-                className="img-fluid"
-                alt="makan7"
-              />
-              <span className={`position-absolute ${landing.titleImage}`}>
-                Sugar Salmon
-              </span>
-            </div>
-            <div className={`${landing.cusGridMd4} position-relative p-0`}>
-              <img
-                src={require("../assets/image/makanan8.png")}
-                className="img-fluid"
-                alt="makan8"
-              />
-              <span className={`position-absolute ${landing.titleImage}`}>
-                Indian Salad
-              </span>
-            </div> */}
+          </div>
+          {/* <div>
+            <button
+              type="button"
+              disabled={currentPage === 1}
+              onClick={() => handlePreviousPagination()}
+            >
+              Previous
+            </button>
+            <span>{currentPage}</span>
+            <button type="button" onClick={() => handleNextPagination()}>
+              Next
+            </button>
+          </div> */}
+          {/* button pagination */}
+          <div className="d-flex justify-content-center">
+            <nav aria-label="Page navigation example">
+              <ul className="pagination">
+                <li className="page-item">
+                  <button
+                    className="page-link"
+                    disabled={currentPage === 1}
+                    onClick={() => handlePreviousPagination()}
+                  >
+                    Previous
+                  </button>
+                </li>
+                <li className="page-item">
+                  <button className="page-link">{currentPage}</button>
+                </li>
+                <li className="page-item">
+                  <button
+                    className="page-link"
+                    onClick={() => handleNextPagination()}
+                  >
+                    Next
+                  </button>
+                </li>
+              </ul>
+            </nav>
           </div>
         </section>
       </main>
       <Footers />
-      {/* {JSON.stringify(recipe)} */}
     </div>
   );
 };
