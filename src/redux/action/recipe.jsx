@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getRecipe = (limit = 6, page) => {
+export const getRecipe = (limit, page) => {
   return {
     type: "GET_LIST_RECIPE",
     payload: axios({

@@ -16,11 +16,6 @@ const LandingPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [title, setTitle] = useState("");
 
-  useEffect(() => {
-    setCurrentPage(1);
-    dispatch(getRecipe(6, currentPage));
-  }, []);
-
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (title != "") {
@@ -36,6 +31,11 @@ const LandingPage = () => {
     }
   };
 
+  useEffect(() => {
+    setCurrentPage(1);
+    dispatch(getRecipe(6, currentPage));
+  }, []);
+
   const handlePreviousPagination = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
@@ -44,8 +44,10 @@ const LandingPage = () => {
   };
 
   const handleNextPagination = () => {
-    setCurrentPage(currentPage + 1);
-    dispatch(getRecipe(6, currentPage));
+    if (currentPage < 3) {
+      setCurrentPage(currentPage + 1);
+      dispatch(getRecipe(6, currentPage + 1));
+    }
   };
 
   const logout = () => {
