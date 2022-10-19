@@ -17,6 +17,15 @@ const Register = () => {
     password: "",
   });
 
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  const handleSuccess = (data) => {
+    alert("Register Success");
+    return navigate("/login");
+  }
+
   const onSubmitHandler = (e) => {
     e.preventDefault();
     console.log(form);
@@ -35,14 +44,7 @@ const Register = () => {
         password: form.password,
       };
       dispatch(
-        createUser(body)
-          .then((res) => {
-            alert("Register success");
-            navigate("/login");
-          })
-          .catch((err) => {
-            alert("Register failed");
-          })
+        createUser(body, handleSuccess)
       );
     }
   };
@@ -68,7 +70,8 @@ const Register = () => {
                   className="form-control"
                   id="inputUsername"
                   placeholder="Enter name"
-                  onChange={(e) => setForm({ ...form, nama: e.target.value })}
+                  onChange={handleChange}
+                  name="nama"
                 />
               </div>
               <div className="form-group">
@@ -80,7 +83,8 @@ const Register = () => {
                   className="form-control"
                   id="inputEmail"
                   placeholder="Enter email address"
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  onChange={handleChange}
+                  name="email"
                 />
               </div>
               <div className="form-group">
@@ -91,7 +95,8 @@ const Register = () => {
                   className="form-control"
                   id="inputPhone"
                   placeholder="08xxxxxxxxx"
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  onChange={handleChange}
+                  name="phone"
                 />
               </div>
               <div className="form-group">
@@ -103,9 +108,8 @@ const Register = () => {
                   className="form-control"
                   id="inputPassword"
                   placeholder="Create New Password"
-                  onChange={(e) =>
-                    setForm({ ...form, password: e.target.value })
-                  }
+                  onChange={handleChange}
+                  name="password"
                 />
               </div>
               <div className="form-group">

@@ -1,17 +1,33 @@
 import React, { useState } from "react";
 import style from "../assets/style.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "../redux/action/user";
 
 const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const state = useSelector((state) => {
+    return state.user;
+  });
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
 
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+  const handleSuccess = (data) => {
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("data", JSON.stringify(data.data));
+    const check = 
+    data.data === null
+      ? alert("email or password is wrong")
+      : navigate("/landing");
+      return check;
+  };
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (form.email === "" || form.password === "") {
@@ -22,16 +38,7 @@ const Login = () => {
         password: form.password,
       };
       dispatch(
-        loginUser(body)
-          .then((res) => {
-            console.log(res.data);
-            localStorage.setItem("token", res.data.token.token);
-            localStorage.setItem("data", JSON.stringify(res.data.token.data));
-            navigate("/landing");
-          })
-          .catch((err) => {
-            alert("Email or password is wrong");
-          })
+        loginUser(body, handleSuccess)
       );
     }
   };
@@ -57,7 +64,8 @@ const Login = () => {
                   className="form-control"
                   id="inputEmail"
                   placeholder="email@gmail.com"
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  onChange={handleChange}
+                  name="email"
                 />
               </div>
               <div>
@@ -69,9 +77,8 @@ const Login = () => {
                   className="form-control"
                   id="inputPassword"
                   placeholder="Password"
-                  onChange={(e) =>
-                    setForm({ ...form, password: e.target.value })
-                  }
+                  onChange={handleChange}
+                  name="password"
                 />
               </div>
               <div>
@@ -88,7 +95,7 @@ const Login = () => {
               </div>
               <div className="d-grid gap-2">
                 <button type="submit" className={`btn ${style.btnCustom}`}>
-                  Login
+                  {state.isLoading ? "Loading..." : "Login"}
                 </button>
               </div>
               <div className="text-end">

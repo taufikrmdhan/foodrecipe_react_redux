@@ -3,7 +3,6 @@ import recipestyle from "../assets/addrecipe.module.css";
 import { useNavigate } from "react-router-dom";
 import Footers from "../Component/footer";
 import Navbar from "../Component/navbar";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { uploadImage, resetImage, createRecipe } from "../redux/action/addrecipe";
 
@@ -14,7 +13,6 @@ const AddRecipe = () => {
     return state.addRecipe;
   });
   const hiddenFileInput = useRef(null);
-  // const [image, setImage] = useState("Add image");
   const handleClick = (event) => {
     console.log(event);
     hiddenFileInput.current.click();
@@ -25,19 +23,18 @@ const AddRecipe = () => {
     console.log(fileUploaded)
     dispatch(uploadImage(fileUploaded));
   };
+  const handleSuccess = (event) => {
+    console.log(event);
+    alert("Recipe added");
+    return navigate("/profile");
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     let formData = new FormData(event.target);
     formData.append("image", state.fileImage);
     dispatch(resetImage());
     dispatch(
-      createRecipe(formData)
-      .then((res) => {
-        alert("Recipe added");
-        navigate("/profile");
-      }).catch((err) => {
-        alert("Failed to add recipe");
-      })
+      createRecipe(formData, handleSuccess)
     )
   };
 

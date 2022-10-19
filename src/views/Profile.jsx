@@ -21,15 +21,13 @@ const Profile = () => {
     dispatch(getRecipe());
   }, []);
 
+  const handleSuccess = (event) => {
+    alert("Recipe deleted");
+    dispatch(getRecipe());
+  }
+
   const deleteRow = (id_recipe) => {
-    dispatch(deleteRecipe(id_recipe)
-    .then((res) => {
-      alert("Recipe deleted");
-      dispatch(getRecipe());
-    })
-    .catch((err) => {
-      alert("Failed to delete recipe");
-    })
+    dispatch(deleteRecipe(id_recipe, handleSuccess)
     );
   };
 
@@ -155,76 +153,6 @@ const Profile = () => {
                 <div
                   className={`${profilestyle.grid12} ${profilestyle.gapMedium}`}
                 >
-                  {/* {
-                  recipe.isLoading ? (
-                    <p>Loading...</p>
-                  ) : recipe.isError ? (
-                    <p>failed to get</p>
-                  ) : recipe.length > 0 ? (
-                    recipe.data?.map((data, i) => {
-                      return (
-                        <>
-                          <div
-                            key={data.id_recipe}
-                            className={`${profilestyle.cusGridMd3} position-relative p-0`}
-                          >
-                            <img
-                              src={`${process.env.REACT_APP_BACKEND_URL}/${data.image}`}
-                              className="img-fluid"
-                              alt={data.title}
-                            />
-                            <span
-                              className={`position-absolute ${profilestyle.titleImage}`}
-                            >
-                              {data.title}
-                            </span>
-                          </div>
-                          <div className="d-flex flex-column">
-                            <div>
-                              <button
-                                onClick={(e) => deleteRow(data.id_recipe, e)}
-                                type="button"
-                                className="btn btn-danger my-1"
-                              >
-                                <i
-                                  className="fa fa-trash"
-                                  aria-hidden="true"
-                                ></i>
-                              </button>
-                            </div>
-                            <div>
-                              <button
-                                type="button"
-                                className="btn btn-warning my-1"
-                              >
-                                <Link
-                                  className={profilestyle.aBtn}
-                                  to="/update"
-                                  state={{ id: data.id_recipe, image: data.image, title: data.title, ingredient: data.ingredient, videostep: data.videostep}}
-                                >
-                                  <i
-                                    className="fa fa-pencil-square-o"
-                                    aria-hidden="true"
-                                  ></i>
-                                </Link>
-                              </button>
-                            </div>
-                            <div>
-                            <button
-                                
-                                type="button"
-                                className="btn btn-success my-1"
-                              >
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                              </button>
-                            </div>
-                          </div>
-                        </>
-                      );
-                    })
-                  ) : (
-                    <h4>Success delete data</h4>
-                  )} */}
                    {
                   recipe.isLoading ? (
                     <p>Loading...</p>

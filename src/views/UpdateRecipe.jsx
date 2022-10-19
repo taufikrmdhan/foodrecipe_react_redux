@@ -22,28 +22,30 @@ const UpdateRecipe = () => {
   });
 
   const handleClick = (event) => {
+    console.log(event);
     hiddenFileInput.current.click();
   };
   const handleChange = (event) => {
     const fileUploaded = event.target.files[0];
-    console.log(fileUploaded);
     dispatch(uploadImage(fileUploaded));
   };
 
+  const handleChangeForm = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  }
+
+  const handleSuccess = (event) => {
+    console.log(event);
+    alert("Recipe updated");
+    return navigate("/profile");
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     let formData = new FormData(event.target);
     formData.append("image", stateRedux.fileImage);
     dispatch(resetImage());
     dispatch(
-      updateRecipe(formData, state.id)
-      .then((res) => {
-        // console.log(res);
-        alert("Recipe updated");
-        navigate("/profile");
-      }).catch((err) => {
-        alert("Failed to update recipe");
-      })
+      updateRecipe(formData, state.id, handleSuccess)
     )
   };
   useEffect(() => {
@@ -148,9 +150,7 @@ const UpdateRecipe = () => {
                   aria-describedby="emailHelp"
                   name="title"
                   value={form.title}
-                  onChange={(e) =>
-                    setForm({ ...form, [e.target.name]: e.target.value })
-                  }
+                  onChange={handleChangeForm}
                 />
               </div>
               <div className="mb-3">
@@ -161,9 +161,7 @@ const UpdateRecipe = () => {
                   placeholder="Ingredients"
                   name="ingredient"
                   value={form.ingredient}
-                  onChange={(e) =>
-                    setForm({ ...form, [e.target.name]: e.target.value })
-                  }
+                  onChange={handleChangeForm}
                 ></textarea>
               </div>
               <div className="mb-3">
@@ -174,9 +172,7 @@ const UpdateRecipe = () => {
                   placeholder="Video"
                   name="videostep"
                   value={form.videostep}
-                  onChange={(e) =>
-                    setForm({ ...form, [e.target.name]: e.target.value })
-                  }
+                  onChange={handleChangeForm}
                 ></textarea>
               </div>
               <div className="text-center">

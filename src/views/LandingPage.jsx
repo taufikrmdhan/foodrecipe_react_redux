@@ -128,11 +128,6 @@ const LandingPage = () => {
                         className={`fa fa-search ${landing.searchCustom}`}
                         aria-hidden="true"
                       ></i>
-                      {/* <img
-                      src={require("../assets/image/search.svg")}
-                      className=
-                      alt="icon search"
-                    /> */}
                     </div>
                     <input
                       type="search"
@@ -246,20 +241,6 @@ const LandingPage = () => {
               })
             )}
           </div>
-          {/* <div>
-            <button
-              type="button"
-              disabled={currentPage === 1}
-              onClick={() => handlePreviousPagination()}
-            >
-              Previous
-            </button>
-            <span>{currentPage}</span>
-            <button type="button" onClick={() => handleNextPagination()}>
-              Next
-            </button>
-          </div> */}
-          {/* button pagination */}
           <div className="d-flex justify-content-center">
             <nav aria-label="Page navigation example">
               <ul className="pagination">

@@ -18,6 +18,7 @@ import ChangePas from "../views/ChangePass";
 import Detail from "../views/DetailRecipe";
 import Video from "../views/DetailVideo";
 import Update from "../views/UpdateRecipe";
+import Notfound from "../views/Errorpage";
 
 const PrivateRoute = () => {
   const token = localStorage.getItem("token");
@@ -33,40 +34,29 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Home />} />
-                <Route path="/insert" element={<Insert />} />
-                <Route path="/detail" element={<Detail />} /> */}
         <Route path="/">
-          {/* <Route index element={<Home />} />
-                    <Route path=":id" element={<Detail />} />
-                    <Route path="new" element={<Insert />} /> */}
           <Route index element={<Register />} />
           <Route path="login" element={<Login />} />
-          {/* <Route path="landing" element={<Landing />} /> */}
           <Route path="/landing" element={<PrivateRoute />}>
             <Route index element={<Landing />} />
           </Route>
           <Route path="forgot" element={<Forgot />} />
           <Route path="confirm" element={<Confirm />} />
-
-          {/* <Route path="add" element={<Add />} /> */}
           <Route path="/add" element={<PrivateRoute />}>
             <Route index element={<Add />} />
           </Route>
-          {/* <Route path="profile" element={<Profil />} /> */}
           <Route path="/profile" element={<PrivateRoute />}>
             <Route index element={<Profil />} />
           </Route>
           <Route path="change" element={<ChangePas />} />
-          {/* <Route path="detail" element={<Detail />} /> */}
           <Route path="/detail" element={<PrivateRoute />}>
             <Route index element={<Detail />} />
           </Route>
           <Route path="video" element={<Video />} />
-          {/* <Route path="update" element={<Update />} /> */}
           <Route path="/update" element={<PrivateRoute />}>
             <Route index element={<Update />} />
           </Route>
+          <Route path="*" element={<Notfound />} />
         </Route>
       </Routes>
     </BrowserRouter>
