@@ -48,6 +48,9 @@ const LandingPage = () => {
       setCurrentPage(currentPage + 1);
       dispatch(getRecipe(6, currentPage + 1));
     }
+    else {
+      alert("Max page reached");
+    }
   };
 
   const logout = () => {

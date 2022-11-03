@@ -26,6 +26,7 @@ const PrivateRoute = () => {
   if (token && data) {
     return <Outlet />;
   } else {
+    alert("You must login first");
     return <Navigate to="/login" />;
   }
 };
