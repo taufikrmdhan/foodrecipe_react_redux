@@ -153,13 +153,53 @@ const Profile = () => {
                 <div
                   className={`${profilestyle.grid12} ${profilestyle.gapMedium}`}
                 >
+                  {/* {
+                    Object.keys(recipe).map((item, index) => {
+                      return (
+                        <div className={profilestyle.customCard} key={index}>
+                          <div className="card">
+                            <img
+                              src={recipe[item].image}
+                              className="card-img-top"
+                              alt="..."
+                            />
+                            <div className="card-body">
+                              <h5 className="card-title">{recipe[item].title}</h5>
+                              <p className="card-text">
+                                {recipe[item].description}
+                              </p>
+                              <div className="d-flex justify-content-between">
+                                <button
+                                  className={`btn ${profilestyle.btnCustom}`}
+                                >
+                                  <Link
+                                    className={profilestyle.aBtn}
+                                    to={`/detail/${recipe[item].id_recipe}`}
+                                  >
+                                    Detail
+                                  </Link>
+                                </button>
+                                <button
+                                  className={`btn ${profilestyle.btnCustom}`}
+                                  onClick={() => deleteRow(recipe[item].id_recipe)}
+                                >
+                                  Delete
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })
+                  } */}
                    {
                   recipe.isLoading ? (
                     <p>Loading...</p>
                   ) : recipe.isError ? (
                     <p>failed to get</p>
                   ) : (
-                    recipe.data?.map((data, i) => {
+                    Object.values(recipe.data)?.map((data, i) => {
+                      // Object.keys(recipe.data).map((item, index) => {
                       return (
                         <>
                           <div
