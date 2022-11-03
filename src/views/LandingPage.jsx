@@ -227,7 +227,7 @@ const LandingPage = () => {
             ) : recipe.isError ? (
               <p>failed to get</p>
             ) : (
-              recipe.data.map((data, i) => {
+              Object.values(recipe.data).map((data, i) => {
                 return (
                   <div
                     key={data.id_recipe}
