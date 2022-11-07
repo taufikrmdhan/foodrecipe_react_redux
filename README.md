@@ -4,7 +4,7 @@ Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan 
 #Screenshoots
 
 ### Login
-![https://drive.google.com/drive/u/0/folders/1dWdtzNE1NCvl3OzC1xxiXfp3y8p7Ndfq]( {[link gambar](https://drive.google.com/file/d/1pBWqoPy_jqIlukMpIAcLUaNaI9i59zKk/view?usp=share_link)} )
+![image.png](https://drive.google.com/file/d/1pBWqoPy_jqIlukMpIAcLUaNaI9i59zKk/view?usp=share_link.png)
 
 ## Getting Started with Create React App
 
