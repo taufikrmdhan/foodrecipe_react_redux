@@ -12,7 +12,6 @@ const LandingPage = () => {
   const recipe = useSelector((state) => {
     return state.recipe;
   });
- console.log(data);
   const [currentPage, setCurrentPage] = useState(1);
   const [title, setTitle] = useState("");
 
