@@ -234,7 +234,7 @@ const LandingPage = () => {
                     className={`${landing.cusGridMd4} position-relative p-0`}
                   >
                     <img
-                      src={`${process.env.REACT_APP_BACKEND_URL}/${data.image}`}
+                      src={`${process.env.REACT_APP_BACKEND_URL}/${data.image_secure_url}`}
                       className="img-fluid"
                       alt={data.title}
                     />
