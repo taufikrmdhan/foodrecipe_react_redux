@@ -207,7 +207,7 @@ const Profile = () => {
                             className={`${profilestyle.cusGridMd3} position-relative p-0`}
                           >
                             <img
-                              src={`${process.env.REACT_APP_BACKEND_URL}/${data.image}`}
+                              src={data.image_url}
                               className="img-fluid"
                               alt={data.title}
                             />
