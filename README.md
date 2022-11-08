@@ -1,10 +1,21 @@
-# Getting Started with Create React App
+# Food Recipe
+Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan React.js. Melalui aplikasi ini, pengguna dapat melihat resep makanan, hapus resep makanan, update resep makanan dan membuat resep makanan.
+
+#Screenshoots
+
+### Login
+![image.png](https://drive.google.com/file/d/1pBWqoPy_jqIlukMpIAcLUaNaI9i59zKk/view?usp=share_link)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+## Link Backend
+https://github.com/taufikrmdhan/tickitz_intermediateBE
 
 ### `npm start`
 
