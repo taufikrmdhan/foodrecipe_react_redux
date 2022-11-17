@@ -5,21 +5,36 @@ Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan 
 # Requirements
 
 ○ Semua requirement dari Week 6 (Github : https://github.com/taufikrmdhan/foodRecipe_react)
+
 ○ Navigation (Public & Private)
+
 ○ Login dan register (page)
+
 ○ localStorage
+
 ○ Redux (CRUD) & with file
+
 ○ URL Params (Search, Sort dan Pagination)
+
 ○ Build & deploy
+
 ○ ENV
+
 ○ Responsive
+
 ○ Linter
+
 ○ Hooks
+
 ○ Webpack
+
 ○ Persist Storage
+
 ○ Gunakan Bahasa Inggris untuk nama File dan Fungsi
+
 ○ Upload/push tugas kamu ke GitHub dan gunakan nama
 yang profesional
+
 ○ Dapat didemokan menggunakan postman
 
 # Screenshoots
