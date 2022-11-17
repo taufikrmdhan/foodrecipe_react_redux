@@ -1,7 +1,28 @@
 # Food Recipe
 Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan React.js. Melalui aplikasi ini, pengguna dapat melihat resep makanan, hapus resep makanan, update resep makanan dan membuat resep makanan.
 
-#Screenshoots
+
+# Requirements
+
+○ Semua requirement dari Week 6
+○ Navigation (Public & Private)
+○ Login dan register (page)
+○ localStorage
+○ Redux (CRUD) & with file
+○ URL Params (Search, Sort dan Pagination)
+○ Build & deploy
+○ ENV
+○ Responsive
+○ Linter
+○ Hooks
+○ Webpack
+○ Persist Storage
+○ Gunakan Bahasa Inggris untuk nama File dan Fungsi
+○ Upload/push tugas kamu ke GitHub dan gunakan nama
+yang profesional
+○ Dapat didemokan menggunakan postman
+
+# Screenshoots
 
 ### Login
 ![image.png](https://drive.google.com/file/d/1pBWqoPy_jqIlukMpIAcLUaNaI9i59zKk/view?usp=share_link)
