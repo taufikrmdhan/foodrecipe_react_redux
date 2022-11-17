@@ -4,7 +4,7 @@ Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan 
 
 # Requirements
 
-○ Semua requirement dari Week 6
+○ Semua requirement dari Week 6 (Github : https://github.com/taufikrmdhan/foodRecipe_react)
 ○ Navigation (Public & Private)
 ○ Login dan register (page)
 ○ localStorage
