@@ -1,8 +1,4 @@
-# Food Recipe
-Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan React.js. Melalui aplikasi ini, pengguna dapat melihat resep makanan, hapus resep makanan, update resep makanan dan membuat resep makanan.
-
-
-# Requirements
+<!-- # Requirements
 
 ○ Semua requirement dari Week 6 (Github : https://github.com/taufikrmdhan/foodRecipe_react)
 
@@ -35,83 +31,87 @@ Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan 
 ○ Upload/push tugas kamu ke GitHub dan gunakan nama
 yang profesional
 
-○ Dapat didemokan menggunakan postman
+○ Dapat didemokan menggunakan postman -->
 
-# Screenshoots
+<h1 align="center">Food Recipe</h1>
 
-### Login
-![image.png](https://drive.google.com/file/d/1pBWqoPy_jqIlukMpIAcLUaNaI9i59zKk/view?usp=share_link)
+## Table of contents
+- [Description](#Description)
+- [Project Structure](#Project)
+- [Screenshoots](#Screenshoot)
+- [Related Project](#Related-Project)
+- [Contributing](#Contributing)
+- [License](#License)
 
-## Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan React.js. Melalui aplikasi ini, pengguna dapat melihat resep makanan, hapus resep makanan, update resep makanan dan membuat resep makanan.
 
-## Available Scripts
+## Project Structure
+```
+|── Frontend
+   |── public          # Asset Public
+   |── src             # Project source code
+       |── Assets      # Image that store use multer
+       |── Components  # Layouts
+       |── Redux       # Management State
+       |── Router      # Endpoint
+       |── views       # pages
+   |── .env            # Setting env backend to connecting   
+   |── .gitignore      # File name for not uploaded on github
+   |── .README.md      # For Readme In github
+```
 
-In the project directory, you can run:
+## Screenshoots
+<details>
+  <summary>
+    Landing Page
+  </summary>
+<img src="/screenshoots/landingpage.png" alt="Landing Page" />
+<img src="/screenshoots/itemlanding.png" alt="item" />
+</details>
 
-## Link Backend
-https://github.com/taufikrmdhan/tickitz_intermediateBE
+<details>
+  <summary>
+    Item Detail
+  </summary>
+<img src="/screenshoots/detail.png" alt="Detail" />
+</details>
 
-### `npm start`
+<details>
+  <summary>
+   Video Page
+  </summary>
+<img src="/screenshoots/video.png" alt="video" />
+</details>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<details>
+  <summary>
+   Profile
+  </summary>
+<img src="/screenshoots/profile.png" alt="Profile" />
+</details>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<details>
+  <summary>
+    Login Page
+  </summary>
+<img src="/screenshoots/login.png" alt="login" />
+</details>
 
-### `npm test`
+<details>
+  <summary>
+   Register
+  </summary>
+<img src="/screenshoots/register.png" alt="Register" />
+</details>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Related Project
+RESTful API for this web application, clone this for development Foodtemplate.\
+[backend-slicingfoodtemplate](https://github.com/taufikrmdhan/tickitz_intermediateBE)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please make sure to update tests as appropriate.
