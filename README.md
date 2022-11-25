@@ -45,7 +45,7 @@ yang profesional
 
 
 ## Description
-Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan beberapa teknologi diantaranya : PostgreSQL, Express.js, dan React.js. Melalui aplikasi ini, pengguna dapat melihat resep makanan, hapus resep makanan, update resep makanan dan membuat resep makanan.
+Food Recipe is a food recipe application developed using several technologies including PostgreSQL, Express.js, and React.js. This application allows users to view food recipes and delete, update, and make recipes.
 
 ## Project Structure
 ```
@@ -89,7 +89,21 @@ Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan 
   <summary>
    Profile
   </summary>
-<img src="/screenshoots/profile.png" alt="Profile" />
+<img src="/screenshoots/profile revisi.png" alt="Profile" />
+</details>
+
+<details>
+  <summary>
+   Add Recipe
+  </summary>
+<img src="/screenshoots/add.png" alt="Profile" />
+</details>
+
+<details>
+  <summary>
+   Update Recipe
+  </summary>
+<img src="/screenshoots/update.png" alt="Profile" />
 </details>
 
 <details>
@@ -110,6 +124,7 @@ Food Recipe adalah sebuah aplikasi recipe makanan yang dikembangkan menggunakan 
 ## Related Project
 RESTful API for this web application, clone this for development Foodtemplate.\
 [backend-slicingfoodtemplate](https://github.com/taufikrmdhan/tickitz_intermediateBE)
+[deployement-slicingfoodtemplate](https://foodrecipe-roan.vercel.app/)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
