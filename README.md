@@ -75,7 +75,7 @@ Food Recipe is a food recipe application developed using several technologies in
   <summary>
     Item Detail
   </summary>
-<img src="/screenshoots/detail.png" alt="Detail" />
+<img src="/screenshoots/Gambar telor.png" alt="Detail" />
 </details>
 
 <details>
