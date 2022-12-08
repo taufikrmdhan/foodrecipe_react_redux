@@ -124,6 +124,7 @@ Food Recipe is a food recipe application developed using several technologies in
 ## Related Project
 RESTful API for this web application, clone this for development Foodtemplate.\
 [backend-slicingfoodtemplate](https://github.com/taufikrmdhan/tickitz_intermediateBE)
+<br/>
 [deployement-slicingfoodtemplate](https://foodrecipe-roan.vercel.app/)
 
 ## Contributing
