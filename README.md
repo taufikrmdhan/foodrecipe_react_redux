@@ -72,6 +72,7 @@ Food Recipe is a food recipe application developed using several technologies in
   <li><a href='https://expressjs.com/'>Express JS (for backend)</a></li>
    <li><a href="https://github.com/taufikrmdhan/foodrecipe_react_redux/blob/main/package.json">and se more for dependecy on package.json</a></li>
 </ul>
+
 ## Screenshoots
 <details>
   <summary>
