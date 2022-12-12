@@ -45,7 +45,7 @@ yang profesional
 
 
 ## Description
-Food Recipe is a food recipe application developed using several technologies including PostgreSQL, Express.js, and React.js. This application allows users to view food recipes and delete, update, and make recipes.
+Food Recipe is a food recipe application developed using several technologies including PostgreSQL, Express.js, and React.js. This application allows users to view food recipes and delete, update, and make recipes. This app implements redux concept (Management state) in react.
 
 ## Project Structure
 ```
