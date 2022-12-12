@@ -62,6 +62,16 @@ Food Recipe is a food recipe application developed using several technologies in
    |── .README.md      # For Readme In github
 ```
 
+## Build with
+<ul>
+  <li><a href='https://html5.org/'>HTML 5</a></li>
+  <li><a href='https://www.w3.org/Style/CSS/Overview.en.html'>CSS</a></li>
+  <li><a href='https://www.javascript.com/'>JavaScript</a></li>
+  <li><a href='https://nodejs.org/en/'>NodeJS</a></li>
+  <li><a href='https://reactjs.org/'>React JS (for frontend)</a></li>
+  <li><a href='https://expressjs.com/'>Express JS (for backend)</a></li>
+   <li><a href="https://github.com/taufikrmdhan/foodrecipe_react_redux/blob/main/package.json">and se more for dependecy on package.json</a></li>
+</ul>
 ## Screenshoots
 <details>
   <summary>
@@ -136,3 +146,5 @@ Please make sure to update tests as appropriate.
 Install package : npm i
 
 Run Project : npm start
+
+
