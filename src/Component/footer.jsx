@@ -36,7 +36,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className={style.customArcademy}>
-              <p>© Arcademy</p>
+              <p>© pijar.camp</p>
             </div>
           </div>
         </nav>
