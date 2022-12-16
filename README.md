@@ -45,10 +45,10 @@ yang profesional
 - [License](#License)
 
 
-## Description
+<h2 id="Description">Description</h2> 
 Food Recipe is a food recipe application developed using several technologies including PostgreSQL, Express.js, and React.js. This application allows users to view food recipes and delete, update, and make recipes. This app implements redux concept (Management state) in react.
 
-## Project Structure
+<h2 id="Project">Project Structure</h2> 
 ```
 |── Frontend
    |── public          # Asset Public
@@ -63,7 +63,7 @@ Food Recipe is a food recipe application developed using several technologies in
    |── .README.md      # For Readme In github
 ```
 
-## Build with
+<h2 id="Build">Build with</h2> 
 <ul>
   <li><a href='https://html5.org/'>HTML 5</a></li>
   <li><a href='https://www.w3.org/Style/CSS/Overview.en.html'>CSS</a></li>
@@ -74,7 +74,7 @@ Food Recipe is a food recipe application developed using several technologies in
    <li><a href="https://github.com/taufikrmdhan/foodrecipe_react_redux/blob/main/package.json">and se more for dependecy on package.json</a></li>
 </ul>
 
-## Screenshoots
+<h2 id="Screenshoot">Screenshoots</h2> 
 <details>
   <summary>
     Landing Page
@@ -87,7 +87,7 @@ Food Recipe is a food recipe application developed using several technologies in
   <summary>
     Item Detail
   </summary>
-<img src="/screenshoots/Gambar telor.png" alt="Detail" />
+<img src="/screenshoots/ingredientUpdate.jpeg" alt="Detail" />
 </details>
 
 <details>
@@ -133,13 +133,13 @@ Food Recipe is a food recipe application developed using several technologies in
 </details>
 
 
-## Related Project
+<h2 id="Related-Project">Related Project</h2> 
 RESTful API for this web application, clone this for development Foodtemplate.\
 [backend-slicingfoodtemplate](https://github.com/taufikrmdhan/tickitz_intermediateBE)
 <br/>
 [deployement-slicingfoodtemplate](https://foodrecipe-roan.vercel.app/)
 
-## Contributing
+<h2 id="Contributing">Contributing</h2> 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
