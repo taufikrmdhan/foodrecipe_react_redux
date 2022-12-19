@@ -22,17 +22,11 @@ const Login = () => {
   const handleSuccess = (data) => {
     localStorage.setItem("token", data.token);
     localStorage.setItem("data", JSON.stringify(data.data));
-    // make alert if token is null
-    if (data.token === null) {
-      alert("email or password is wrong");
-    } else {
-      navigate("/landing");
-    }
-    // const check = 
-    // data.data === null
-    //   ? alert("email or password is wrong")
-    //   : navigate("/landing");
-    //   return check;
+    const check = 
+    data.data === null
+      ? alert("email or password is wrong")
+      : navigate("/landing");
+      return check;
     
   };
   const onSubmitHandler = (e) => {

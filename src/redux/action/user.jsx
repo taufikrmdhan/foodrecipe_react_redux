@@ -28,6 +28,7 @@ export const loginUser = (form, handleSuccess) => ({
       })
       .catch((err) => {
         reject(err);
+        alert("email or password is wrong");
       });
   }),
 });
