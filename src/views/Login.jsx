@@ -22,6 +22,7 @@ const Login = () => {
   const handleSuccess = (data) => {
     localStorage.setItem("token", data.token);
     localStorage.setItem("data", JSON.stringify(data.data));
+    console.log(data.token)
     if(data.token === null){
       alert("email or password is wrong")
     }
