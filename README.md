@@ -80,7 +80,7 @@ Food Recipe is a food recipe application developed using several technologies in
     Landing Page
   </summary>
 <img src="/screenshoots/landingpage.png" alt="Landing Page" />
-<img src="/screenshoots/itemlanding.png" alt="item" />
+<img src="/screenshoots/rev land.png" alt="item" />
 </details>
 
 <details>
@@ -101,7 +101,7 @@ Food Recipe is a food recipe application developed using several technologies in
   <summary>
    Profile
   </summary>
-<img src="/screenshoots/profile revisi.png" alt="Profile" />
+<img src="/screenshoots/rev prof.png" alt="Profile" />
 </details>
 
 <details>
